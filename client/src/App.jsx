@@ -1,16 +1,14 @@
-
-import './App.css'
-import axios from 'axios'
-import Products from './assets/Products'
+import axios from "axios";
+import Homepage from "./pages/Homepage";
 function App() {
   // Default URL axios
-  axios.defaults.baseURL = 'http://127.0.0.1:8000/api/'
+  axios.defaults.baseURL = "http://127.0.0.1:8000/api/";
 
   return (
     <>
-      <Products/>
+      <Homepage />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
