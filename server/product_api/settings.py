@@ -52,11 +52,19 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+]
+CORS_ALLOW_METHODS = [
+    'GET',
+    'POST',
+    'PUT',
+    'DELETE'
+
 ]
 
-
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5174'
+    'http://localhost:5174',
+    'http://localhost:5173'
 ]
 
 ROOT_URLCONF = 'product_api.urls'

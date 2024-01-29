@@ -1,28 +1,24 @@
-import React from "react";
+import { useParams } from "react-router-dom";
 import { useProductContext } from "../context/ProductContext";
+import { MdDelete } from "react-icons/md";
+import Product from "./Product";
 
 const Products = () => {
   const { products } = useProductContext();
 
   return (
-    <div className="mt-6 p-6">
-      <h1 className="text-5xl font-semibold text-gray-700 mb-6">
-        Check our products:{" "}
+    <div className="mt-2 py-6">
+      <h1 className="text-5xl px-24 font-semibold text-gray-700 mb-8">
+        Products
       </h1>
-
-      <div className="flex flex-wrap gap-3 rounded-xl">
-        {products.map((product) => (
-          <div
-            key={product.id}
-            className="p-5 border w-full max-w-[350px] rounded-xl"
-          >
-            <h4 className="text-lg font-semibold"> {product.name}</h4>
-            <h3 className="text-sm">Category: {product.category}</h3>
-            <p className="text-3xl font-bold">{product.price}</p>
-            <p className="text-sm text-gray-500">{product.description}</p>
-            <span>Review: {product.stars}</span>
-          </div>
-        ))}
+      {products.length == 0 && (
+        <p className="text-3xl px-24 text-gray-500">No products to display</p>
+      )}
+      <div className="flex flex-wrap justify-center gap-3 rounded-xl">
+        {products &&
+          products.map((product) => (
+            <Product key={product.id} product={product} />
+          ))}
       </div>
     </div>
   );

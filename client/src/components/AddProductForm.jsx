@@ -9,6 +9,7 @@ const AddProductForm = () => {
     category: "",
     price: "",
     description: "",
+    stars: "",
   });
 
   const handleInputChange = (e) => {
@@ -52,7 +53,7 @@ const AddProductForm = () => {
             type="text"
             id="name"
             name="name"
-            value={newProduct.name}
+            value={newProduct.name || ""}
             onChange={handleInputChange}
             className="w-full border-2 border-gray-300 p-2 rounded"
             required
@@ -66,7 +67,7 @@ const AddProductForm = () => {
             type="text"
             id="category"
             name="category"
-            value={newProduct.category}
+            value={newProduct.category || ""}
             onChange={handleInputChange}
             className="w-full border-2 border-gray-300 p-2 rounded"
             required
@@ -80,7 +81,7 @@ const AddProductForm = () => {
             type="number"
             id="price"
             name="price"
-            value={newProduct.price}
+            value={newProduct.price || ""}
             onChange={handleInputChange}
             className="w-full border-2 border-gray-300 p-2 rounded"
             required
@@ -93,21 +94,21 @@ const AddProductForm = () => {
           <textarea
             id="description"
             name="description"
-            value={newProduct.description}
+            value={newProduct.description || ""}
             onChange={handleInputChange}
             className="w-full border-2 border-gray-300 p-2 rounded"
             required
           ></textarea>
         </div>
         <div className="mb-4">
-          <label htmlFor="stars" className="block text-gray-600">
-            Stars:
+          <label htmlFor="price" className="block text-gray-600">
+            Review:
           </label>
           <input
             type="number"
             id="stars"
             name="stars"
-            value={newProduct.stars}
+            value={newProduct.stars || ""}
             onChange={handleInputChange}
             className="w-full border-2 border-gray-300 p-2 rounded"
             required

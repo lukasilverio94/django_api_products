@@ -16,15 +16,44 @@ export const ProductProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    fetchProducts(); // Fetch products when the component mounts
+    fetchProducts();
   }, []);
 
+  // Add product
   const addProduct = (newProduct) => {
     setProducts((prevProducts) => [...prevProducts, newProduct]);
   };
 
+  // Delete product
+  const deleteProduct = async (productId) => {
+    try {
+      await axios.delete(`product-delete/${productId}/`);
+      setProducts((prevProducts) =>
+        prevProducts.filter((product) => product.id !== productId)
+      );
+    } catch (error) {
+      console.error("Error deleting product:", error);
+    }
+  };
+
+  // Edit
+  const updateProduct = (id, updatedProduct) => {
+    setProducts((prevProducts) =>
+      prevProducts.map((product) =>
+        product.id === id ? { ...product, ...updatedProduct } : product
+      )
+    );
+  };
   return (
-    <ProductContext.Provider value={{ products, addProduct }}>
+    <ProductContext.Provider
+      value={{
+        products,
+        addProduct,
+        deleteProduct,
+        updateProduct,
+        fetchProducts,
+      }}
+    >
       {children}
     </ProductContext.Provider>
   );
