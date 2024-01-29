@@ -18,7 +18,7 @@ const Product = ({ product }) => {
     <div className="p-5 border w-full max-w-[350px] rounded-xl">
       <h4 className="text-lg font-semibold"> {product.name}</h4>
       <h3 className="text-sm text-gray-700">Category: {product.category}</h3>
-      <p className="text-3xl font-bold">{product.price}</p>
+      <p className="text-4xl font-bold italic">${product.price}</p>
       <p className="text-sm text-gray-500">{product.description}</p>
       <span>Review: {product.stars}</span>
       <div className="flex justify-between align-center">

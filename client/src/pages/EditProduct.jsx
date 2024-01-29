@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useProductContext } from "../context/ProductContext";
 
@@ -48,7 +48,7 @@ const EditProduct = ({ id }) => {
   };
 
   return (
-    <div className="p-5 border w-full max-w-[350px] rounded-xl">
+    <div className="p-5 border w-full max-w-[800px] m-auto  rounded-xl">
       <h4 className="text-lg font-semibold">Edit Product</h4>
       <div className="mb-4">
         <label htmlFor="name" className="block text-gray-600">
@@ -125,6 +125,9 @@ const EditProduct = ({ id }) => {
       >
         Save Changes
       </button>
+      <Link to="/" className="text-gray-700 font-semibold ps-5">
+        Cancel
+      </Link>
     </div>
   );
 };
